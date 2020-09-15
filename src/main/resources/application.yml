@@ -10,3 +10,9 @@ spring:
     username: postgres
     password: exercise2
     driverClassName: org.postgresql.Driver
+security:
+  jwt:
+    public-key: classpath:public.txt
+    key-store-password: letmein
+    key-pair-alias: mytestkey
+    key-pair-password: changeme
