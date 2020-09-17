@@ -2,6 +2,8 @@
 <BR>
 Consiste em dois módulos SpringBoot, um responsável pelo servicos Rest <B>(mspatrimonio)</B> e outro pelo token Oauth2 <B>(oauth2-server)</B>
 <BR><BR>
+<BR>-Necessário subir os dois modulos com mvn spring-boot:run independemente um do outro
+<BR><BR>
 <b>mspatrimonio </b>
 <BR>- Spring Boot, que já facilita a nossa arquitetura para implementação dos services
 <BR>- Banco postgresql para armazenar os Dados, alocado um banco na amazon para facilitar os testes por terceiros sem ter que instalar o banco local
