@@ -9,6 +9,8 @@ import br.com.jm.mspatrimonio.entity.Marca;
 
 @Repository
 public interface MarcaRepository extends JpaRepository<Marca, Integer> {
+	List<Marca> findByNomeContainingIgnoreCase(String nome);
+	
 	List<Marca> findByNome(String nome);
 }
 

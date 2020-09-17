@@ -16,16 +16,12 @@ public class Usuario {
 	
 	@Id
 	@Column(name="email")
-	@NotEmpty(message = "Por favor, informe um email")
-	@Email(message = "Informe um email inválido")
 	private String email;
 	
 	@Column(name="nome")
-	@NotEmpty(message = "Por favor, informe um nome")
 	private String nome;
 	
 	@Column(name="senha")
-	@NotEmpty(message = "Por favor, informe uma senha")
 	private String senha;
 	
 	

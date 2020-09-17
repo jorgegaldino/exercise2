@@ -10,9 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.jm.mspatrimonio.dto.MarcaDTO;
-import br.com.jm.mspatrimonio.dto.PatrimonioDTO;
 import br.com.jm.mspatrimonio.entity.Marca;
-import br.com.jm.mspatrimonio.entity.Patrimonio;
 import br.com.jm.mspatrimonio.repository.MarcaRepository;
 
 @Service
@@ -27,7 +25,7 @@ public class MarcaService {
 	
 	public List<MarcaDTO> findMarca(String nome) {
 		
-		List<Marca> marcas = marcaRepository.findByNome(nome);
+		List<Marca> marcas = marcaRepository.findByNomeContainingIgnoreCase(nome);
 		
 		List<MarcaDTO> asDto = marcas.stream().map(
 		        s -> modelMapper.map(s, MarcaDTO.class)

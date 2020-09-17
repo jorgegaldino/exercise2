@@ -9,7 +9,7 @@ import br.com.jm.mspatrimonio.entity.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, String> {
-	List<Usuario> findByNome(String nome);
+	List<Usuario> findByNomeContainingIgnoreCase(String nome);
 }
 
 

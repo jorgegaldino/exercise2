@@ -11,7 +11,7 @@ import br.com.jm.mspatrimonio.entity.Patrimonio;
 
 @Repository
 public interface PatrimonioRepository extends JpaRepository<Patrimonio, Integer> {
-	List<Patrimonio> findByNome(String nome);
+	List<Patrimonio> findByNomeContainingIgnoreCase(String nome);
 }
 
 

@@ -43,8 +43,12 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
     			.antMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
-                //.antMatchers(HttpMethod.GET, ROOT_PATTERN).access("#oauth2.hasScope('read')")
-                .antMatchers(HttpMethod.POST, ROOT_PATTERN).access("#oauth2.hasScope('write')")
+                .antMatchers(HttpMethod.GET, "/usuario*").access("#oauth2.hasScope('read')")
+                .antMatchers(HttpMethod.GET, "/marca*").access("#oauth2.hasScope('read')")
+                .antMatchers(HttpMethod.GET, "/patrimonio*").access("#oauth2.hasScope('read')")
+                .antMatchers(HttpMethod.POST, "/usuario*").permitAll()
+                .antMatchers(HttpMethod.POST, "/marca*").access("#oauth2.hasScope('write')")
+                .antMatchers(HttpMethod.POST, "/patrimonio*").access("#oauth2.hasScope('write')")
                 .antMatchers(HttpMethod.PATCH, ROOT_PATTERN).access("#oauth2.hasScope('write')")
                 .antMatchers(HttpMethod.PUT, ROOT_PATTERN).access("#oauth2.hasScope('write')")
                 .antMatchers(HttpMethod.DELETE, ROOT_PATTERN).access("#oauth2.hasScope('write')");

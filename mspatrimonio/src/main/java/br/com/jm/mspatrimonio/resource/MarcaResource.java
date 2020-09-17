@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.jm.mspatrimonio.dto.MarcaDTO;
 import br.com.jm.mspatrimonio.dto.MensagemDTO;
-import br.com.jm.mspatrimonio.entity.Marca;
 import br.com.jm.mspatrimonio.entity.Patrimonio;
 import br.com.jm.mspatrimonio.service.MarcaService;
 import io.swagger.annotations.Api;

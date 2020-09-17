@@ -10,10 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.jm.mspatrimonio.dto.PatrimonioDTO;
-import br.com.jm.mspatrimonio.dto.UsuarioDTO;
-import br.com.jm.mspatrimonio.entity.Marca;
 import br.com.jm.mspatrimonio.entity.Patrimonio;
-import br.com.jm.mspatrimonio.entity.Usuario;
 import br.com.jm.mspatrimonio.repository.MarcaRepository;
 import br.com.jm.mspatrimonio.repository.PatrimonioRepository;
 
@@ -31,7 +28,7 @@ public class PatrimonioService {
 	private ModelMapper modelMapper;
 	
 	public List<PatrimonioDTO> findPatrimonio(String nome) {
-		List<Patrimonio> patrimonios = patrimonioRepository.findByNome(nome);
+		List<Patrimonio> patrimonios = patrimonioRepository.findByNomeContainingIgnoreCase(nome);
 		
 		List<PatrimonioDTO> asDto = patrimonios.stream().map(
 		        s -> modelMapper.map(s, PatrimonioDTO.class)
