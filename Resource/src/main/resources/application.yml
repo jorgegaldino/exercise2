@@ -1,0 +1,21 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://exercise2-db.chaqd2yccxrw.sa-east-1.rds.amazonaws.com:5432/exercise2
+    username: postgres
+    password: exercise2
+    driverClassName: org.postgresql.Driver
+security:
+  jwt:
+    public-key: classpath:public.txt
+    key-store-password: letmein
+    key-pair-alias: mytestkey
+    key-pair-password: changeme
+logging:
+    level:
+        root: DEBUG
