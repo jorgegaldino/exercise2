@@ -15,7 +15,15 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.builders.RequestParameterBuilder;
+import springfox.documentation.service.ParameterType;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+
 import java.io.IOException;
+import java.util.Arrays;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -82,6 +90,21 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    
+    @Bean
+    public Docket api() {
+        
+        Docket docket = new Docket(DocumentationType.SWAGGER_2).select()
+                    .apis(RequestHandlerSelectors.any())
+                    .paths(PathSelectors.any())
+                    .build();
+                    
+            docket.globalRequestParameters(Arrays.asList(
+                    new RequestParameterBuilder().name("Authorization")
+                            .description("Authorization details for security JWT token")
+                            .in(ParameterType.HEADER).required(false).build()));
+        return docket;
     }
 
 }
