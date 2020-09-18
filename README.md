@@ -19,7 +19,7 @@ Consiste em dois módulos SpringBoot, um responsável pelo servicos Rest <B>(msp
 <BR>-Banco Postgres alocado da Amazon, com isso facilita o teste por terceiros
 <BR>-Para gerar um token, use a rota http://localhost:9000/oauth/token
 <BR>-USE curl -u clientId:secret -X POST localhost:9000/oauth/token\?grant_type=password\&username=user\&password=pass
-<BR>-Necessário usar postman nos serviços que usam autenticação, devido a um bug no swagger.
+<BR>-Necessário usar postman nos serviços que usam autenticação, devido não ser possível obter o token diretamente via Swagger
 
 
 
